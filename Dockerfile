@@ -1,28 +1,17 @@
 FROM ubuntu:latest
 MAINTAINER jcreynolds
 
-# additional files
+# Install Dependencies
 ##################
-
-ADD startup.sh
-
-# install app
-#############
-
 RUN mkdir /NodeLink
-
 RUN apt-get update && apt-get install -y wget mono-vbnc
 
-# docker settings
-#################
-
-# map /config to host defined config path (used to store configuration from app)
-VOLUME /config
-
-# expose port for http
-EXPOSE 8090
-
-# set permissions
-#################
-
+#Adding Custom files
+##################
+ADD startup.sh
 RUN chmod -v +x startup.sh
+
+# Docker Settings
+#################
+EXPOSE 8090
+VOLUME /config
