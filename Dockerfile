@@ -8,10 +8,12 @@ VOLUME /config
 
 # Install Dependencies
 ##################
-RUN mkdir /tmp/NodeLink
+RUN mkdir /NodeLink
+RUN chmod a+rwX /NodeLink
 RUN apt-get update && apt-get install -y wget mono-vbnc
 
 # Adding Custom files
 ##################
-COPY startup.sh /tmp/
-RUN chmod  -v +x /tmp/startup.sh && sleep 1 && /tmp/startup.sh && rm /tmp/startup.sh
+ADD startup.sh /tmp/startup.sh
+RUN chmod  -v +x /tmp/startup.sh
+CMD ["/bin/bash", "/tmp/startup.sh"] 
