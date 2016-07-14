@@ -4,7 +4,7 @@ MAINTAINER jcreynolds
 # additional files
 ##################
 
-COPY startup.sh /usr/local/myscripts/mystart.sh
+ADD startup.sh
 
 # install app
 #############
@@ -25,4 +25,4 @@ EXPOSE 8090
 # set permissions
 #################
 
-CMD ["/bin/bash", "/usr/local/myscripts/mystart.sh"]
+RUN chmod -v +x startup.sh
