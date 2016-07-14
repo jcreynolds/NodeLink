@@ -8,7 +8,7 @@ VOLUME /config
 
 # Install Dependencies
 ##################
-RUN mkdir /NodeLink
+RUN mkdir /tmp/NodeLink
 RUN apt-get update && apt-get install -y wget mono-vbnc
 
 # Adding Custom files
