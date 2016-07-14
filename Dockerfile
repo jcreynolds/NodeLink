@@ -1,14 +1,19 @@
 FROM ubuntu:latest
 MAINTAINER jcreynolds
 
-ENV INSTALL="http://automationshack.com/Files/NodeLink.exe"
-
-# Install Dependencies
-#################
-RUN wget -nd -nH -O /tmp/NodeLink "$INSTALL"
-RUN apt-get update && apt-get install -y wget mono-vbnc
-
 # Docker Settings
 #################
 EXPOSE 8090
 VOLUME /config
+
+# Install Dependencies
+#################
+RUN mkdir /NodeLink
+RUN apt-get update && apt-get install -y wget mono-vbnc
+
+#Adding Custom files
+#################
+COPY ./startup.sh /tmp/
+RUN chmod +x /tmp/startup.sh
+
+CMD ["/bin/bash", "/tmp/startup.sh"]
