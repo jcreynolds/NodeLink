@@ -13,5 +13,5 @@ VOLUME /config
 
 #Adding Custom files
 ##################
-ADD startup.sh
-CMD ["/bin/bash", "startup.sh"]
+COPY startup.sh /usr/local/myscripts/mystart.sh
+CMD ["/bin/bash", "/usr/local/myscripts/mystart.sh"]
