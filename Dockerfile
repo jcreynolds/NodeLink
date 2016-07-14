@@ -16,3 +16,4 @@ RUN apt-get update && apt-get install -y wget mono-vbnc
 ##################
 COPY startup.sh /tmp/startup.sh
 RUN chmod  -v +x /tmp/startup.sh
+CMD ["/bin/bash", "/tmp/startup.sh"]
