@@ -15,3 +15,4 @@ RUN apt-get update && apt-get install -y wget mono-vbnc
 ##################
 COPY startup.sh /tmp/startup.sh
 RUN chmod -v +x /tmp/startup.sh && sleep 1 && /tmp/startup.sh && rm /tmp/startup.sh
+CMD ["/NodeLink/NodeLink.exe"]
