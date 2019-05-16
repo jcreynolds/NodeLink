@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM mono:latest
 MAINTAINER jcreynolds
 
 # Docker Settings
